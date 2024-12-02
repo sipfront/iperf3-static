@@ -6,7 +6,7 @@ on:
       source_repo:
         description: "Define the git repo used for the build"
         required: true
-        default: "https://github.com/esnet/iperf.git"
+        default: "https://github.com/sipfront/iperf.git"
       source_branch:
         description: "Specify the branch or tag to build"
         required: true
