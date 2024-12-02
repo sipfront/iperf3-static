@@ -10,7 +10,7 @@ on:
       source_branch:
         description: "Specify the branch or tag to build"
         required: true
-        default: "master"
+        default: "streaming-json-output"
       skip_new_tag_check:
         description: "Bypass new tag check to force build?"
         required: true
