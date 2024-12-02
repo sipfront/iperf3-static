@@ -85,7 +85,7 @@ jobs:
     needs: skip_duplicate_job
     runs-on: ubuntu-latest
     outputs:
-      source_repo: ${{ github.event.inputs.source_repo || 'https://github.com/esnet/iperf.git' }}
+      source_repo: ${{ github.event.inputs.source_repo || 'https://github.com/sipfront/iperf.git' }}
       source_branch: ${{ github.event.inputs.source_branch || 'master' }}
       artifacts_only: ${{ github.event.inputs.artifacts_only || 'false' }}
       skip_new_tag_check: ${{ github.event.inputs.skip_new_tag_check || 'false'  }}

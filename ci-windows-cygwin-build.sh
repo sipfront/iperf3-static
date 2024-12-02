@@ -3,7 +3,7 @@
 HOME="$(pwd)"
 with_openssl="${1:-no}"
 cygwin_path="${2:-${HOME}}/cygwin"
-source_repo="${3:-https://github.com/esnet/iperf.git}"
+source_repo="${3:-https://github.com/sipfront/iperf.git}"
 source_branch="${4:-master}"
 
 printf '\n%b\n' " \e[93m\U25cf\e[0m With openssl = ${with_openssl}"
@@ -58,7 +58,7 @@ printf '\n%b\n\n' " \e[94m\U25cf\e[0m Repo Info"
 git remote show origin
 
 printf '\n%b\n' " \e[92m\U25cf\e[0m Setting iperf3 version to file iperf3_version"
-sed -rn 's|(.*)\[(.*)],\[https://github.com/esnet/iperf],(.*)|\2|p' configure.ac > "$HOME/iperf3_version"
+sed -rn 's|(.*)\[(.*)],\[https://github.com/sipfront/iperf],(.*)|\2|p' configure.ac > "$HOME/iperf3_version"
 
 printf '\n%b\n\n' " \e[94m\U25cf\e[0m Bootstrapping iperf3"
 

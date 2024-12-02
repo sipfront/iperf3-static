@@ -6,7 +6,7 @@
 #
 # docker run -it -w /root -v ~/iperf3:/root ghcr.io/userdocs/qbt-musl-cross-make:aarch64-linux-musl /bin/bash crossbuild.sh
 
-github_repo="${1:-"https://github.com/esnet/iperf.git"}"
+github_repo="${1:-"https://github.com/sipfront/iperf.git"}"
 github_branch="${2:-"master"}"
 crossbuild_target="${3:-${CC/-gcc/}}"
 arch="${4:-x86_64}"

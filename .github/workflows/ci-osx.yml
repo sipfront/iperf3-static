@@ -104,7 +104,7 @@ jobs:
           cat iperf3-${{ inputs.binary_filename }}.url
 
       - name: Create tag env
-        run: printf '%s\n' "release_tag=$(sed -rn 's|(.*)\[(.*)],\[https://github.com/esnet/iperf],(.*)|\2|p' iperf3/configure.ac)" >> $GITHUB_ENV
+        run: printf '%s\n' "release_tag=$(sed -rn 's|(.*)\[(.*)],\[https://github.com/sipfront/iperf],(.*)|\2|p' iperf3/configure.ac)" >> $GITHUB_ENV
 
       - name: Set tag env to output
         id: release_tags

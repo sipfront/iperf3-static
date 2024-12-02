@@ -123,7 +123,7 @@ automake,gcc-core,gcc-g++,git,libtool,make,pkg-config,libssl-devel,zlib-devel
 Clone the git repo - linux + Cygwin
 
 ```bash
-git clone https://github.com/esnet/iperf.git ~/iperf3 && cd ~/iperf3
+git clone https://github.com/sipfront/iperf.git ~/iperf3 && cd ~/iperf3
 ```
 
 Bootstrap - If you cloned the repo
