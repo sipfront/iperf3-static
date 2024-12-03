@@ -1,3 +1,11 @@
+# Sipfront Fork
+
+This is a fork of the https://github.com/userdocs/iperf3-static/ repo with the following changes:
+
+- It uses instead of the original iperf3 source code the sipfront/iperf3 fork
+
+It is used by the sipfront/agent-ng project to ensure that we are using the same iperf3 version there as is used by the old agent.
+
 # iperf3 static builds
 
 ## Build Platforms
