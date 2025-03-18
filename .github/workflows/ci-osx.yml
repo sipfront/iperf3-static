@@ -66,10 +66,10 @@ jobs:
 
       - name: Set compiler flags
         run: |
-          if [[ "${{ inputs.target }}" == "macos-13" ]]; then
-            echo "CFLAGS=-march=x86-64 -mnoavx" >> $GITHUB_ENV
-            echo "CXXFLAGS=-march=x86-64 -mnoavx" >> $GITHUB_ENV
-          elif [[ "${{ inputs.target }}" == "macos-14" ]]; then
+          if [[ "macos-13" == "macos-13" ]]; then
+            echo "CFLAGS=-mnoavx" >> $GITHUB_ENV
+            echo "CXXFLAGS=-mnoavx" >> $GITHUB_ENV
+          elif [[ "macos-13" == "macos-14" ]]; then
             echo "CFLAGS=-mcpu=apple-m1" >> $GITHUB_ENV
             echo "CXXFLAGS=-mcpu=apple-m1" >> $GITHUB_ENV
           fi
