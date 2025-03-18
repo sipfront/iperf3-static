@@ -64,6 +64,16 @@ jobs:
       - name: Set CC
         run: printf '%s\n' "LDFLAGS=-L${{ github.workspace }}/openssl_libs" >> "$GITHUB_ENV"
 
+      - name: Set compiler flags
+        run: |
+          if [[ "${{ inputs.target }}" == "macos-13" ]]; then
+            echo "CFLAGS=-march=x86-64 -mnoavx" >> $GITHUB_ENV
+            echo "CXXFLAGS=-march=x86-64 -mnoavx" >> $GITHUB_ENV
+          elif [[ "${{ inputs.target }}" == "macos-14" ]]; then
+            echo "CFLAGS=-mcpu=apple-m1" >> $GITHUB_ENV
+            echo "CXXFLAGS=-mcpu=apple-m1" >> $GITHUB_ENV
+          fi
+
       - name: Configure
         working-directory: iperf3
         run: ./configure --enable-shared=no --disable-silent-rules --disable-profiling --prefix=${{ github.workspace }}/build
@@ -84,6 +94,16 @@ jobs:
           file ${{ github.workspace }}/build/bin/iperf3
           printf '\n%b\n\n' "🟦"
           otool -L ${{ github.workspace }}/build/bin/iperf3
+
+      - name: Check for AVX instructions (amd64 only)
+        if: inputs.target == 'macos-13'
+        run: |
+          if objdump -d ${{ github.workspace }}/build/bin/iperf3 | grep vaddpd; then
+            echo "AVX instructions found, build may not be compatible with Rosetta 2"
+            exit 1
+          else
+            echo "No AVX instructions found"
+          fi
 
       - name: Process iperf3 build
         run: mv -f ${{ github.workspace }}/build/bin/iperf3 ${{ github.workspace }}/iperf3-${{ inputs.binary_filename }}
